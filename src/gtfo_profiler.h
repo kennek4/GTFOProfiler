@@ -93,16 +93,16 @@ class Timer {
 #define GTFO_PROFILE_SESSION_START(name, filePath)                             \
     GTFO::Profiler::get().startSession(name, filePath);
 #define GTFO_PROFILE_SESSION_END() GTFO::Profiler::get().endSession();
-#define GTFO_PROFILE_SCOPE(name, category)                                     \
-    GTFO::Timer timer##__LINE__(name, category)
-#define GTFO_PROFILE_FUNCTION(category) PROFILE_SCOPE(__FUNCTION__, category)
+#define GTFO_PROFILE_SCOPE(scopeName, scopeCategory)                           \
+    GTFO::Timer timer##__LINE__(scopeName, scopeCategory)
+#define GTFO_PROFILE_FUNCTION() GTFO_PROFILE_SCOPE(__FUNCTION__, "function")
 #endif
 
 #ifdef GTFO_PROFILER_OFF
-#define START_PROFILE_SESSION(name, filePath)
-#define END_PROFILE_SESSION()
-#define PROFILE_SCOPE(name)
-#define PROFILE_FUNCTION()
+#define GTFO_PROFILE_SESSION_START(name, filePath)
+#define GTFO_PROFILE_SESSION_END()
+#define GTFO_PROFILE_SCOPE(scopeName, scopeCategory)
+#define GTFO_PROFILE_FUNCTION() GTFO_PROFILE_SCOPE(__FUNCTION__, "function")
 #endif
 
 #endif // END OF __GTFO_PROFILER_H
