@@ -1,20 +1,22 @@
-# GTFO-Profiler
+# 🏃‍♂️ GTFO-Profiler ⌛
 
 A Google Trace _event_ Format Output Profiler <br>
 A simple to use _instrumentation profiler_ to benchmark timings of chunks of your code base.
 
-## Table of Contents
+<img width="413" height="288" alt="t2" src="https://github.com/user-attachments/assets/2ae4def2-8ed4-49a5-b3af-503dac6b5b47" />
+
+## Table of Contents 📑
 
 - [How To Use](#how-to-use)
 - [Examples](#examples)
 - [Integration](#integration)
 - [Dependencies](#dependencies)
 
-## How To Use
+## How To Use 🤖
 
 > Macro definitions will not show their implementations for clarity
 
-### Session Macros
+### Session Macros 💻
 
 ```C++
 #define GTFO_PROFILE_SESSION_START(name, filePath)
@@ -24,7 +26,7 @@ A simple to use _instrumentation profiler_ to benchmark timings of chunks of you
 Session macros are used to describe **large/conceptual** chunks of code that all profiling <br>
 data _within_ the start and end macro calls will be assigned to.
 
-### Scope Macros
+### Scope Macros 🔭
 
 ```C++
 #define GTFO_PROFILE_SCOPE(scopeName, scopeCategory)
@@ -35,7 +37,7 @@ Scope macros are used to describe **small** chunks of code such as function call
 Scope macros will automatically stop timing when they are destroyed in their current scope. GTFO_PROFILE_FUNCTION() is syntactic <br>
 sugar and simply calls GTFO_PROFILE_SCOPE(...) with the expansion of the \__FUNCTION__ variable and "function" as the category. 
 
-### Turn Off Profiling
+### Turn Off Profiling ❌
 
 To disable profiling, simply define GTFO_PROFILER_OFF. You can do this using CMake (and other build systems too) by doing the following.
 
@@ -51,7 +53,7 @@ or
 
 You can also just #define GTFO_PROFILER_OFF somewhere in your code base.
 
-## Examples
+## Examples 📬
 
 ```C++
 // app.cpp
@@ -108,13 +110,13 @@ int main() {
 }
 ```
 
-## Integration
+## Integration 🛠
 
 To integrate GTFOProfiler into you project simply include **both** the _include_ and _src_ directories <br>
 and then link it against your project using your build system (CMake, Premake, etc.)
 > As of v1.0.0, gtfo_profiler.h is hardcoded into using nlohmann/json.hpp by doing '#include "../include/nlohmann/json.hpp"'.
 > If your project _already_ contains nlohmann_json as a dependency, change this #include statement to point to your nlohmann/json.hpp
 
-## Dependencies
+## Dependencies 🧰
 
 - [nlohmann_json](https://github.com/nlohmann/json)
