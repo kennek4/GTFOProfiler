@@ -112,7 +112,7 @@ int main() {
 
 ## Integration 🛠
 
-To integrate GTFOProfiler into you project simply include **both** the _include_ and _src_ directories <br>
+To integrate GTFOProfiler into you project simply add **both** the _include_ and _src_ directories <br>
 and then link it against your project using your build system (CMake, Premake, etc.)
 > As of v1.0.0, gtfo_profiler.h is hardcoded into using nlohmann/json.hpp by doing '#include "../include/nlohmann/json.hpp"'.
 > If your project _already_ contains nlohmann_json as a dependency, change this #include statement to point to your nlohmann/json.hpp
